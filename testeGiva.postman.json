@@ -1,0 +1,177 @@
+{
+	"info": {
+		"_postman_id": "57380da6-b213-42b4-9382-64ac90ca5623",
+		"name": "testeGiva",
+		"description": "teste",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+				
+		{
+			"name": "Customer - Authenticate Post - Gera Token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\":\"giva\", \"password\":\"admi\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/authenticate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"authenticate"
+					]
+				},
+				"description": "Gera  o token "
+			},
+			"response": []
+		},
+		{
+			"name": "Customer - FindAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				},
+				"description": "Test"
+			},
+			"response": []
+		},
+		{
+			"name": "Customer - FindByCpf",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmb28iLCJleHAiOjE1OTc4ODkxMzgsImlhdCI6MTU5Nzg1MzEzOH0.zYU81si1sSLAIQKMb3rJrw5YuQx1I8TiAQZ4NpcXUdA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/customer/find/123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customer",
+						"find",
+						"123"
+					]
+				},
+				"description": "test find by cpf"
+			},
+			"response": []
+		},
+		{
+			"name": "Customer - Create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cpf\": 123,\r\n    \"name\": \"Josue\",\r\n    \"address\": {\r\n        \"logradouro\": \"rua Paulista novo teste\",\r\n        \"numero\": \"2\",\r\n        \"complemento\": \"Apto 23 - Bloco 2\",\r\n        \"cep\": \"07190-023\",\r\n        \"bairro\": \"Centro\",\r\n        \"cidade\": \"Guarulhos\",\r\n        \"estado\": \"SP\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/customer/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customer",
+						"create"
+					]
+				},
+				"description": "Create customer"
+			},
+			"response": []
+		},
+		{
+			"name": "Customer - Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmb28iLCJleHAiOjE1OTc5MTcxOTUsImlhdCI6MTU5Nzg4MTE5NX0.dpNkzhEfCxMEQGF3-uNvQNyl-NLIkExAIo2Y6C1Fh5k",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/customer/delete/1234",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customer",
+						"delete",
+						"1234"
+					]
+				},
+				"description": "Delete customer"
+			},
+			"response": []
+		},
+		{
+			"name": "Customer - Update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmb28iLCJleHAiOjE1OTc5MjEzMDIsImlhdCI6MTU5Nzg4NTMwMn0.S7CuxcfV2Q3kqvt16dvasX23EmAlZuxMnuiLTmjgj3s",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 2,\r\n    \"cpf\": 1235,\r\n    \"name\": \"Mane Antonio\",\r\n    \"address\": {\r\n        \"id\": 2,\r\n        \"logradouro\": \"Ambrosio\",\r\n        \"numero\": \"2\",\r\n        \"complemento\": \"Apto 23 - Bloco 2\",\r\n        \"cep\": \"07190-023\",\r\n        \"bairro\": \"Centro\",\r\n        \"cidade\": \"Guarulhos\",\r\n        \"estado\": \"SP\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/customer/update/1235",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customer",
+						"update",
+						"1235"
+					]
+				},
+				"description": "Update customer "
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
