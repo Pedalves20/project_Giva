@@ -134,12 +134,12 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			            "/swagger-resources/**",  
 			            "/swagger-ui.html", 
 			            "/webjars/**" ,
-			            "/swagger.json")
-			        .permitAll()
+			            "/swagger.json").permitAll()
 				.antMatchers("/h2").permitAll()
 				.antMatchers("/main/api/").permitAll()
 				.antMatchers("/main/api/**").permitAll()
-				.antMatchers("/customer/**").permitAll()
+				.antMatchers("/customer/**").authenticated()
+				.antMatchers("customer/hello-world**").permitAll()
 				.antMatchers("http://localhost:8080/swagger-ui.html").permitAll()
 				.antMatchers("http://localhost:8080/main/api/").permitAll()
 				.antMatchers("/h2/").permitAll()

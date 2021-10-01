@@ -30,6 +30,19 @@ public class CustomerController {
 	private ICustomerService service;
 	
 	
+	@RequestMapping(value = "/hello-world", method = RequestMethod.GET)
+	public ResponseEntity<String> getHelloWord() throws ResourceNotFoundException {
+		String hello = "";
+		try {
+			   hello = "Olá pessoal , Sucesso";
+		} catch (Exception e) {
+			new ResourceNotFoundException("Error search customers");
+		}
+		return ResponseEntity.ok().body(hello);
+	}
+	
+	
+	
 	@RequestMapping(value = "/all", method = RequestMethod.GET)
 	public ResponseEntity<List<CustomerDto>> getAll() throws ResourceNotFoundException {
 		List<CustomerDto> customer = null;

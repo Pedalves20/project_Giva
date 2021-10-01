@@ -7,5 +7,6 @@ import br.com.manager.domain.UserDto;
 public interface IUserService {
 	
 		   UserDto findByCpf(String login, String password) throws ServiceException;
+		   UserDto findByLogin(String login) throws ServiceException;
 		  
 		 }

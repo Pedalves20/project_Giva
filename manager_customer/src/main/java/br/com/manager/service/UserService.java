@@ -19,7 +19,12 @@ public class UserService implements IUserService {
 	@Override
 	public UserDto findByCpf(String login, String password) throws ServiceException {
 		UserDto userDto = null;
-		User user = customerRepository.findByLoginPassword(login, password);
+		 User user = customerRepository.findByLoginPassword(login, password);
+		//MOCK PARA TESTE
+		//User user = new User();
+		//user.setLogin("giva");
+		//user.setPassword("admin");
+		
 		if(user != null) {
 			userDto = new UserDto();
 			userDto.setLogin(user.getLogin());
@@ -28,6 +33,23 @@ public class UserService implements IUserService {
 	 return userDto;
 	}
 
+	
+	@Override
+	public UserDto findByLogin(String login) throws ServiceException {
+		UserDto userDto = null;
+		 User user = customerRepository.findByLogin(login);
+		//MOCK PARA TESTE
+		//User user = new User();
+		//user.setLogin("giva");
+		//user.setPassword("admin");
+		
+		if(user != null) {
+			userDto = new UserDto();
+			userDto.setLogin(user.getLogin());
+			userDto.setPassword(user.getPassword());
+		}
+	 return userDto;
+	}
 		
 	}
 

@@ -22,10 +22,17 @@ public class MyUserDetailsService implements UserDetailsService {
 	private IUserService userService;
 
 	
-    @Override
-    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        return new User("admin", "admin",
+   
+    public UserDetails loadUserByUsername(String userName, String password) throws UsernameNotFoundException {
+    	
+    	UserDto userdto = new UserDto();
+		userdto = userService.findByLogin(userName);
+        return new User(userdto.getLogin(), userdto.getPassword(),
                 new ArrayList<>());
+    	//
+		/*
+		 * return new User("giva", "admin", new ArrayList<>());
+		 */
     }
     
     public UserDetails loadUserByUsernameAndPassword(String userName, String password) throws UsernameNotFoundException {
@@ -34,4 +41,13 @@ public class MyUserDetailsService implements UserDetailsService {
         return new User(userdto.getLogin(), userdto.getPassword(),
                 new ArrayList<>());
     }
+
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		// TODO Auto-generated method stub
+		UserDto userdto = new UserDto();
+		userdto = userService.findByLogin(username);
+        return new User(userdto.getLogin(), userdto.getPassword(),
+                new ArrayList<>());
+	}
 }
